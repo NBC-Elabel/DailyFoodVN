@@ -37,49 +37,69 @@
   }
   </script>
   <style id="fix-cert-grid">
-    /* Mục "Nhà cung cấp và giấy chứng nhận": ảnh giấy chứng nhận giữ đúng tỉ lệ A4, đủ rộng để đọc.
-       Chỉ áp dụng trong #doi-tac nên không ảnh hưởng các phần khác của trang. */
+    /* Ảnh giấy chứng nhận ở mục "Hồ sơ pháp lý" và "Nhà cung cấp và giấy chứng nhận":
+       giữ đúng tỉ lệ A4, đủ rộng để đọc. Chỉ áp dụng trong #ho-so-phap-ly và #doi-tac.
+       Dùng !important để chắc chắn thắng mọi quy tắc cũ trong assets/css/style.css. */
     #doi-tac .sup__certs,
-    #doi-tac .sup__chain { min-width: 0; }
+    #doi-tac .sup__chain,
+    #ho-so-phap-ly .wrap { min-width: 0 !important; }
 
-    #doi-tac .cert-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
-      gap: 20px 16px;
-      align-items: start;
-      width: 100%;
-      max-width: 100%;
-      overflow: visible;
-      scroll-snap-type: none;
+    #doi-tac .cert-row,
+    #ho-so-phap-ly .cert-row {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)) !important;
+      grid-auto-flow: row !important;
+      grid-auto-columns: auto !important;
+      grid-template-rows: none !important;
+      gap: 24px 20px !important;
+      align-items: start !important;
+      justify-content: stretch !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      overflow: visible !important;
+      scroll-snap-type: none !important;
     }
-    #doi-tac .cert-thumb {
-      display: flex;
-      flex: none;
-      flex-direction: column;
-      align-items: stretch;
+    #doi-tac .cert-row .cert-thumb,
+    #ho-so-phap-ly .cert-row .cert-thumb {
+      display: flex !important;
+      flex: none !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
       gap: 10px;
-      width: 100%;
-      min-width: 0;
-      max-width: none;
-      height: auto;
-      max-height: none;
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: none !important;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      aspect-ratio: auto !important;
       text-align: left;
     }
-    #doi-tac .cert-thumb img {
-      display: block;
-      width: 100%;
-      max-width: none;
-      height: auto;
-      max-height: none;
-      aspect-ratio: 420 / 594;
-      object-fit: contain;
+    #doi-tac .cert-row .cert-thumb img,
+    #ho-so-phap-ly .cert-row .cert-thumb img {
+      display: block !important;
+      flex: none !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: none !important;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      aspect-ratio: 420 / 594 !important;
+      object-fit: contain !important;
+      object-position: center top !important;
     }
-    #doi-tac .cert-thumb > span {
-      display: block;
-      min-width: 0;
+    #doi-tac .cert-row .cert-thumb > span,
+    #ho-so-phap-ly .cert-row .cert-thumb > span {
+      display: block !important;
+      width: 100% !important;
+      min-width: 0 !important;
       overflow-wrap: anywhere;
+      white-space: normal !important;
     }
-    #doi-tac .cert-thumb > span strong { display: block; }
+    #doi-tac .cert-row .cert-thumb > span strong,
+    #ho-so-phap-ly .cert-row .cert-thumb > span strong { display: block; }
   </style>
 </head>
 <body>
