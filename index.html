@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600..800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/style.css">
 
@@ -100,6 +100,100 @@
     }
     #doi-tac .cert-row .cert-thumb > span strong,
     #ho-so-phap-ly .cert-row .cert-thumb > span strong { display: block; }
+  </style>
+
+  <style id="fix-typography">
+    /* Một họ chữ duy nhất, dễ đọc cho tiếng Việt: Be Vietnam Pro, dự phòng bằng font hệ thống có đủ dấu. */
+    :root {
+      --fx-font: "Be Vietnam Pro", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    html {
+      font-size: 106.25% !important;              /* 17px thay vì 16px: chữ nền lớn hơn ~6% */
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    html body,
+    html body *,
+    html body *::before,
+    html body *::after {
+      font-family: var(--fx-font) !important;
+      font-variation-settings: normal !important;
+      font-optical-sizing: auto;
+    }
+    body {
+      font-size: 1rem !important;
+      font-weight: 400;
+      line-height: 1.7 !important;
+      letter-spacing: 0 !important;
+      font-kerning: normal;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Tiêu đề: bỏ chữ ép sát, tăng khoảng dòng để dấu tiếng Việt không dính nhau */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700 !important;
+      letter-spacing: -0.005em !important;
+      line-height: 1.3 !important;
+      text-wrap: balance;
+    }
+    h1 { line-height: 1.2 !important; }
+    h4 { font-weight: 600 !important; }
+
+    /* Đoạn văn, danh sách, chú thích */
+    p, li, dd, summary, figcaption, label { line-height: 1.7; letter-spacing: 0; }
+    p, dd, li { text-wrap: pretty; }
+    strong, b, th { font-weight: 600; }
+    small { font-size: 0.875em; }
+
+    /* Nhãn và chữ phụ: không nhỏ hơn ~15px, màu đậm hơn để dễ đọc */
+    .sup__alt,
+    .sup__tags li,
+    .sup__meta dt,
+    .sup__note,
+    .sup-count,
+    .partners__note,
+    .stats dt,
+    .legal__facts dt,
+    .copy-status,
+    .proof__code small {
+      font-size: 0.9rem !important;
+      line-height: 1.55 !important;
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+    }
+    .sup__meta dt,
+    .legal__facts dt,
+    .sup__alt,
+    .sup__note,
+    .sup-count,
+    .partners__note { color: #46534c !important; }
+
+    /* Chú thích dưới ảnh giấy chứng nhận */
+    #doi-tac .cert-row .cert-thumb > span,
+    #ho-so-phap-ly .cert-row .cert-thumb > span {
+      font-size: 0.9rem !important;
+      line-height: 1.55 !important;
+      color: #46534c !important;
+    }
+    #doi-tac .cert-row .cert-thumb > span strong,
+    #ho-so-phap-ly .cert-row .cert-thumb > span strong {
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+      line-height: 1.4 !important;
+      color: #16261d !important;
+      margin-bottom: 2px;
+    }
+
+    /* Nút, bộ lọc, menu */
+    .btn, .filter, .tab, .site-nav a, .header-call, .fab, button, input, select, textarea {
+      letter-spacing: 0 !important;
+      text-transform: none !important;
+    }
+    .btn, .filter, .tab { font-size: 1rem !important; font-weight: 600 !important; line-height: 1.35 !important; }
+    .site-nav a { font-size: 1rem !important; font-weight: 500 !important; }
+    summary { font-size: 1.05rem; font-weight: 600; }
   </style>
 </head>
 <body>
